@@ -6,6 +6,19 @@ import rag_img from '../assets/rag.png';
 import rag_md from '../portfolio/projects/RAG.md?raw';
 import { useNavigate } from "react-router";
 
+const markdownAssets: Record<string, string> = {
+    'tap_spawn.png': tap_img,
+    'agent_smith.png': agent_img,
+    'rag.png': rag_img,
+};
+
+function resolveMarkdownAssets(markdown: string) {
+    return markdown.replace(
+        /(?:\.\.\/)+assets\/([^"'()\s>]+)/g,
+        (path, fileName: string) => markdownAssets[fileName] ?? path,
+    );
+}
+
 export type Projects = {
   title: string;
   branch: string;
@@ -32,7 +45,7 @@ export const projects: Record<string, Projects> = {
             img: tap_img,
             descr: "A multiplayer game featuring room exploration and interaction with NPCs, inspired by the graphics of Stardew Valley, built entirely in RUST",
         },
-        markdown:tap_md
+        markdown: resolveMarkdownAssets(tap_md)
         
     },
     "agent_smith":
@@ -46,7 +59,7 @@ export const projects: Record<string, Projects> = {
             img: agent_img,
             descr: "An autonomous agent that solves coding problems in a sandbox using MCP tools",
         },
-        markdown: as_md
+        markdown: resolveMarkdownAssets(as_md)
     },
      "RAG":
     {
@@ -59,7 +72,7 @@ export const projects: Record<string, Projects> = {
             img: rag_img,
             descr: "An AI that can quickly respond to a knowledge base through indexing and retrieval",
         },
-        markdown:rag_md
+        markdown: resolveMarkdownAssets(rag_md)
     },
 }
 
