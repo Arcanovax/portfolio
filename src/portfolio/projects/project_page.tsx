@@ -2,6 +2,12 @@
 import { useParams, useNavigate } from "react-router";
 import { projects, Projects } from '../projects';
 import { useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
+import "highlight.js/styles/github-dark.css";
+import remarkBreaks from "remark-breaks";
 
 
 export default function Project_page() {
@@ -10,6 +16,7 @@ export default function Project_page() {
     const navigate = useNavigate();
 
     const project: Projects | null = slug ? projects[slug] : null;
+
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" }); 
@@ -64,11 +71,20 @@ export default function Project_page() {
                             <p className='text-[22px]'>{project.participants}</p>
                         </div>
                     </div>
-                    <h1 className='font-bebas text-[50px] text-white leading-[0.8]'>Description</h1>
-                    <p className='font-grotesk text-[15px] mb-5'>{project.descr}</p>
-                    <img src={project.img} className='object-fill'/>
-                    
-
+                    {project.markdown && (
+                        <article className="prose prose-invert max-w-none
+                                            prose-headings:font-bebas prose-headings:font-normal prose-headings:text-[45px]
+                                            prose-headings:mt-0 prose-headings:mb-0
+                                            prose-p:mt-0 prose-p:mb-4
+                                            prose-p:text-[15px]">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm, remarkBreaks]}
+                            rehypePlugins={[rehypeRaw, rehypeHighlight]}
+                        >
+                            {project.markdown}
+                        </ReactMarkdown>
+                        </article>
+                    )}
                 </div>
             </div>
         </div>
