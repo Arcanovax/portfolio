@@ -24,7 +24,6 @@ export type Projects = {
   branch: string;
   years: number;
   duration: string;
-  participants: string;
   preview: {
     img: any
     descr: string;
@@ -40,7 +39,6 @@ export const projects: Record<string, Projects> = {
         branch: "TCP protocol",
         years: 2026,
         duration: "2 Months",
-        participants: "Group of 3",
         preview: {
             img: tap_img,
             descr: "A multiplayer game featuring room exploration and interaction with NPCs, inspired by the graphics of Stardew Valley, built entirely in RUST",
@@ -54,7 +52,6 @@ export const projects: Record<string, Projects> = {
         branch: "AI",
         years: 2026,
         duration: "1 Months",
-        participants: "Group of 3",
         preview: {
             img: agent_img,
             descr: "An autonomous agent that solves coding problems in a sandbox using MCP tools",
@@ -67,7 +64,6 @@ export const projects: Record<string, Projects> = {
         branch: "AI",
         years: 2026,
         duration: "1 Months",
-        participants: "Solo",
         preview: {
             img: rag_img,
             descr: "An AI that can quickly respond to a knowledge base through indexing and retrieval",

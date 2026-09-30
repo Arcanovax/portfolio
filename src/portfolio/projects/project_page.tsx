@@ -52,7 +52,7 @@ export default function Project_page() {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                     
-                    className='relative z-10 cursor-pointer'
+                    className='relative z-10 cursor-pointer m-1'
                      >Home</div>
                     <h1 className='font-bebas text-[170px] text-white leading-[0.8]'>{project.title}</h1>
                     
@@ -67,13 +67,14 @@ export default function Project_page() {
                             <p className='text-[22px]'>{project.duration}</p>
                         </div>
                          <div className='flex flex-col'>
-                            <h1 className=' text-[oklch(62.8%_0_0)]'>Team:</h1>
-                            <p className='text-[22px]'>{project.participants}</p>
+                            <h1 className=' text-[oklch(62.8%_0_0)]'>Year:</h1>
+                            <p className='text-[22px]'>{project.years}</p>
                         </div>
                     </div>
                     {project.markdown && (
                         <article className="prose prose-invert max-w-none
-                                            prose-headings:font-bebas prose-headings:font-normal prose-headings:text-[45px]
+                                            prose-headings:font-bebas prose-headings:font-normal
+                                            prose-h1:text-[50px] prose-h2:text-[40px] prose-h3:text-[32px] prose-h4:text-[26px]
                                             prose-headings:mt-0 prose-headings:mb-0
                                             prose-p:mt-0 prose-p:mb-4
                                             prose-p:text-[15px]">
