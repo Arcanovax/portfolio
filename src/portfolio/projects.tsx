@@ -44,7 +44,7 @@ export const projects: Record<string, Projects> = {
             descr: "A multiplayer game featuring room exploration and interaction with NPCs, inspired by the graphics of Stardew Valley, built entirely in RUST",
         },
         markdown: resolveMarkdownAssets(tap_md)
-        
+
     },
     "agent_smith":
     {
@@ -74,7 +74,7 @@ export const projects: Record<string, Projects> = {
 
 export default function Projects() {
 
-    
+
     const navigate = useNavigate();
 
     return (
@@ -85,7 +85,7 @@ export default function Projects() {
                     }
 				>
                     <div className='m-auto font-grotesk text-[70px]'>{index + 1}</div>
-                    <div className=" m-auto col-span-5">
+                    <div className=" my-auto col-span-5">
                         <h1 className='font-bebas text-6xl text-white'>{project.title}</h1>
                         <p className='font-grotesk text-[15px] mb-5'>{project.preview.descr}</p>
                         <div className="font-grotesk text-[15px] flex gap-4">
@@ -96,12 +96,12 @@ export default function Projects() {
                             <span>{project.duration}</span>
                         </div>
                     </div>
-                    <div className="col-span-3 col-start-8">
+                    <div className="m-auto col-span-3 col-start-8">
                         <img src={project.preview.img} className='object-fill'/>
                     </div>
-                    
+
                 </div> ))}
-                    
+
             </div>
     )
 }
