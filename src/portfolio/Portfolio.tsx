@@ -1,12 +1,8 @@
-
-
 import React, { useState } from 'react';
-import Time from './timeline'
 import  Me  from './me.tsx'
-import tap_img from '../assets/tap_spawn.png';
 import { useNavigate } from "react-router";
 import Projects from './projects.tsx';
-
+import Timeline from "../components/timeline";
 
 export default function Portfolio() {
 
@@ -19,10 +15,10 @@ export default function Portfolio() {
 				<div className=" pb-40 m-auto max-w-200">
 					<Me/>
 				</div>
-				 
-					<Projects/>
-				
 
+					<Projects/>
+
+				<Timeline />
 				{/* <div className="h-64 my-20">
 					<h1 className='text-4xl font-[800]'>About me:</h1>
 					<div className="flex flex-col gap-5 max-w-300 my-5 text-[20px] ">
