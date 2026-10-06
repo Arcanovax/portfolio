@@ -80,7 +80,7 @@ export default function Projects() {
     return (
         <div className="">
             {Object.entries(projects).map(([key, project], index) => (
-                 <div className='p-10 m-auto max-w-600 border-t-[0.1px] grid grid-cols-10 grid-rows-1 gap-4 text-[oklch(62.8%_0_0)] cursor-pointer'
+                 <div className='p-10 m-auto max-w-400 max-h-70 border-t-[0.1px] grid grid-cols-10 grid-rows-1 gap-4 text-[oklch(62.8%_0_0)] cursor-pointer'
                     onClick={() => {navigate(`/projects/${key}`);}
                     }
 				>
@@ -97,7 +97,7 @@ export default function Projects() {
                         </div>
                     </div>
                     <div className="m-auto col-span-3 col-start-8">
-                        <img src={project.preview.img} className='object-fill'/>
+                        <img src={project.preview.img} className='h-50 w-full object-fill'/>
                     </div>
 
                 </div> ))}

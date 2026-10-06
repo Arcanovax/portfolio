@@ -3,6 +3,10 @@ import  Me  from './me.tsx'
 import { useNavigate } from "react-router";
 import Projects from './projects.tsx';
 import Timeline from "../components/timeline";
+import Skills from './skills.tsx';
+
+
+import Board from "./board.tsx";
 
 export default function Portfolio() {
 
@@ -16,10 +20,9 @@ export default function Portfolio() {
 					<Me/>
 				</div>
 
-					<Projects/>
+				<Board />
 
-				<Timeline />
-				{/* <div className="h-64 my-20">
+				<div className="m-auto max-w-400">
 					<h1 className='text-4xl font-[800]'>About me:</h1>
 					<div className="flex flex-col gap-5 max-w-300 my-5 text-[20px] ">
 						<p>
@@ -34,35 +37,15 @@ export default function Portfolio() {
 					</div>
 				</div>
 
-				<div className="h-100">
-					<h1 className='text-4xl font-[800] '>Skills:</h1>
-					<div className='mt-10 flex flex-row '>
-						<div className='w-1/2 mx-auto'>
-							<div className="max-w-100 max-h-75 m-auto grid grid-cols-4 grid-rows-3 gap-2 ">
-								{svgData.map((item) => (
-								<div key={item.id} className="flex items-center justify-center cursor-pointer transition-colors  hover:scale-110"
-									onMouseEnter={() => setHoveredName(item)}
-									onMouseLeave={() => setHoveredName(null)}
-								>
-									{item.icon}
-								</div>
-								))}
-							</div>
-						</div>
+					<Projects/>
 
-						<div className='mx-auto w-1/2 border'>
-							<h1 className='text-4xl font-[800] text-center '>{hoveredName ? hoveredName.name : "Select a case"}</h1>
-							<p className=''>{hoveredName ? hoveredName.desc : ""}</p>
+				<Timeline />
 
-						</div>
-					</div>
-				</div> */}
-				{/* <div className="pt-30 w-150 m-auto">
-					<Time/>
-				</div>
+
+
 				<div className="h-300 w-150 m-auto bg-red-900">
 
-				</div> */}
+				</div>
 
 			</div>
 
