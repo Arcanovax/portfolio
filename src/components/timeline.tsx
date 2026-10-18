@@ -9,7 +9,7 @@ const experiences = [
 	image: tumo_img,
     period: "2023",
     description:
-      "Tumo is an after-school center for digital creation for 12- to 18-year-olds, studying programming, robotics, and video games",
+      "Tumo is an after-school center for digital creation for 12 to 18 year-olds, studying programming, robotics, and video games",
     technologies: ["Scratch", "JavaScript"],
   },
   {
@@ -27,7 +27,7 @@ const experiences = [
 	image: school42_img,
     description:
       "42 is a project-based computer science school focused on autonomy, problem-solving, and peer-to-peer learning. The curriculum emphasizes independent work, collaboration, and developing strong programming and problem-solving skills. Learning various computer programming languages through independent projects, either alone or in groups.",
-    technologies: ["Python", "AI", "Rust", "C", "Shell"],
+    technologies: ["Python", "AI", "Rust", "C", "Shell", "Docker"],
   },
 ];
 
@@ -41,14 +41,14 @@ export default function Timeline() {
 
             <div className="relative pb-35 pl-20 last:pb-0" key={index}>
 
-				<div className="absolute right-full font-grotesk text-[30px]">
+				<div className="absolute right-full font-grotesk text-[60px] leading-[1]">
 					<span>{period}</span>
 				</div>
 
 
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-					{image && (
+					{/* {image && (
 					<div className="flex h-15 w-30 shrink-0 items-center justify-center rounded border bg-background shadow-sm">
 						<img
 						src={image}
@@ -56,10 +56,10 @@ export default function Timeline() {
 						className="h-full w-full object-contain"
 						/>
 					</div>
-					)}
+					)} */}
 
 					<div>
-					<h3 className="font-medium text-2xl tracking-[-0.01em]">
+					<h3 className="font-medium text-3xl tracking-[-0.01em]">
 						{title}
 					</h3>
 

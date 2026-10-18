@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import Projects from './projects.tsx';
 import Timeline from "../components/timeline";
 import Skills from './skills.tsx';
+import Commits from './commits.tsx';
 
 
 import Board from "./board.tsx";
@@ -20,9 +21,9 @@ export default function Portfolio() {
 					<Me/>
 				</div>
 
-				<Board />
 
-				<div className="m-auto max-w-400">
+
+				<div className="m-auto max-w-275 mb-50">
 					<h1 className='text-4xl font-[800]'>About me:</h1>
 					<div className="flex flex-col gap-5 max-w-300 my-5 text-[20px] ">
 						<p>
@@ -37,14 +38,17 @@ export default function Portfolio() {
 					</div>
 				</div>
 
+				<div className="m-auto mb-30">
 					<Projects/>
+				</div>
+				<div className="m-auto mb-30">
+					<Timeline />
+				</div>
 
-				<Timeline />
 
 
-
-				<div className="h-300 w-150 m-auto bg-red-900">
-
+				<div className="w-250 m-auto">
+					<Commits />
 				</div>
 
 			</div>
