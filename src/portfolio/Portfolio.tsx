@@ -41,13 +41,13 @@ export default function Portfolio() {
 				<div className="m-auto mb-30">
 					<Projects/>
 				</div>
-				<div className="m-auto mb-30">
+				<div className="m-auto mb-30 max-w-250">
 					<Timeline />
 				</div>
 
 
 
-				<div className="w-250 m-auto">
+				<div className="max-w-250 m-auto">
 					<Commits />
 				</div>
 
