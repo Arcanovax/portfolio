@@ -12,6 +12,7 @@ export default function App() {
             <Route path="/" element={<Portfolio />} />
             <Route path="/projects/:slug" element={<Project_page />} />
 			<Route path="/commits" element={<CommitsDemo />} />
+			<Route path="/VibeScanDemo" element={<iframe src="src/portfolio/projects/VibeScan/VibeScanDemo.html" style={{ width: '100%', height: '100vh', border: 'none' }} />} />
         </Routes>
 	);
 }
