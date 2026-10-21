@@ -33,15 +33,18 @@ const experiences = [
 
 export default function Timeline() {
   return (
-    <div className="mx-auto max-w-(--breakpoint-sm) py-12 md:py-20">
-      <div className="relative ml-3">
+    <div className="mx-auto w-full max-w-3xl px-6 py-12 md:py-20">
+      <div className="relative">
 
         {experiences.map(
           ({image, location, description, period, technologies, title}, index) => (
 
-            <div className="relative pb-35 pl-20 last:pb-0" key={index}>
+            <div
+              className="pb-20 last:pb-0 md:grid md:grid-cols-[11rem_1fr] md:items-start md:gap-10 md:pb-35"
+              key={index}
+            >
 
-				<div className="absolute right-full font-grotesk text-[60px] leading-[1]">
+				<div className="mb-3 font-grotesk text-[60px] leading-none md:mb-0 md:text-right">
 					<span>{period}</span>
 				</div>
 
