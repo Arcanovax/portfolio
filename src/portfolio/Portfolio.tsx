@@ -21,14 +21,12 @@ export default function Portfolio() {
 						I'm a computer science student at 42 Lyon.
 						</p>
 						<p>
-						My journey began in childhood with “no-code” projects created using visual blocks,
-						which sparked my desire to understand how software actually works.
-						I then moved on to Python and C, which helped me build a solid foundation in logic, memory management, and low-level problem-solving.
+						My journey started with childhood no-code projects using visual blocks, sparking my curiosity about how software works.
+						I then learned Python and C, building strong foundations in logic, memory management, and algorithm.
 						</p>
 						<p>
-						At 42, I'm learning through a program focused on projects and peer-to-peer learning, which requires a lot of independence.
-						It's thanks to this school and to personal projects I've been working on alongside it that I've developed my skills in Docker, React web development,
-						network programming and AI.
+						At 42, project-based learning and peer collaboration have strengthened my independence.
+						Through school projects and personal initiatives, I've developed skills in Docker, React, network programming, and AI.
 						</p>
 						<p>
 						In parallel with the program, I continue to work on personal projects to explore new technologies, especially

@@ -1,12 +1,16 @@
 ## Description
 
-This project implements a multiplayer text-based adventure game (MUD) built around a custom TCP client-server architecture. It allows multiple players to explore a shared world, communicate in real time, form groups, complete quests, trade items, and fight enemies.
+This project implements a multiplayer text-based adventure game built around a custom TCP client-server architecture. It allows multiple players to explore a shared world, communicate in real time, form groups, complete quests, trade items, and fight enemies.
 
-The system is composed of three main components: an asynchronous TCP server, a command-line client, and a graphical client. All components are written in Rust and communicate through a line-based text protocol inspired by RFC 42TAP.
+The system is composed of three main components: an **asynchronous TCP server**, a **command-line client**, and a **graphical client**. All components are written in **Rust** and communicate through a line-based text protocol.
 
 The main technical objective is to build a concurrent network server capable of handling multiple simultaneous connections, synchronizing shared game state, broadcasting real-time events, and persisting player progress across sessions.
 
 The project was developed as part of the 42 curriculum by a team of three contributors.
+
+
+<img src="/src/assets/tap_spawn.png" style="display: block; width: 100%; height: 100%;" />
+
 
 ## System Architecture
 
@@ -36,14 +40,63 @@ The project was developed as part of the 42 curriculum by a team of three contri
 | Network communication | TCP sockets |
 | Protocol | Line-based text protocol inspired by RFC 42TAP |
 | CLI interface | Rust terminal client |
-| GUI interface | Rust graphical client |
+| GUI interface | Rust graphical client (Macroquad) |
 | World configuration | YAML |
 | Persistence | redb |
-| Serialization | bincode |
-| Logging & diagnostics | tracing, tracing-subscriber |
 | Event communication | Tokio MPSC channels |
-| Shared state | Arc and Mutex |
-| Testing | Rust unit tests and multiplayer integration scenarios |
+
+
+## Images
+
+All the assets are from the game Stardew Valley, and I created the maps myself.
+
+### Map
+
+<img src="/src/assets/TAP/TAP_demo_map.png" style="display: block; width: 100%; height: 100%;" />
+
+*This rendering was refined by AI to achieve a more realistic result.*
+<br>
+
+### Fight and Dungeon
+
+<div style="display: flex; justify-content: center; flex-wrap: wrap; width: 100%; gap: 5px;">
+  <img
+    style="width: 49%; min-width: 300px; height: auto; margin:0;"
+    src="/src/assets/TAP/TAP_demo_fight.png"
+  />
+  <img
+    style="width: 49%; min-width: 300px; height: auto; margin:0;"
+    src="/src/assets/TAP/TAP_demo_dungeon.png"
+  />
+</div>
+
+The game features a multiplayer turn-based combat system and procedurally generated dungeons.
+<br>
+
+### Multiplayer and multi-channel chat
+
+<img src="/src/assets/TAP/TAP_demo_chat.png" style="display: block; width: 100%; height: 100%; margin:0;" />
+
+Three chat channels have been implemented: global chat, room chat, and group chat.
+<br>
+
+### Interactions with NPCs
+
+<div style="display: flex; justify-content: center; flex-wrap: wrap; width: 100%; gap: 5px;">
+  <img
+    style="width: 59%; min-width: 300px; height: auto; margin:0;"
+    src="/src/assets/TAP/TAP_demo_market.png"
+  />
+  <img
+    style="width: 39%; min-width: 300px; height: auto; margin:0;"
+    src="/src/assets/TAP/TAP_demo_shop.png"
+  />
+</div>
+
+NPCs provide discussions, quests, riddles, and shops.
+<br>
+
+
 
 ## Key Technical Choices
 
@@ -107,79 +160,44 @@ The implementation extends the base command set to support additional gameplay f
 
 The server also distinguishes gameplay errors from transport and protocol errors, allowing clients and logs to handle them differently.
 
-### Structured logging and graceful shutdown
-
-The server uses `tracing` and `tracing-subscriber` to produce human-readable console logs and structured JSON log files.
-
-Connection spans associate events with a player and their network address, making it easier to investigate individual sessions and diagnose issues across concurrent connections.
-
-On shutdown, the server saves persistent state and flushes connected players' data, reducing the risk of losing progress.
-
-## Results
-
-The repository documents a working multiplayer game architecture with the following implemented capabilities:
-
-| Feature | Implementation |
-|---|---|
-| Concurrent TCP connections | Tokio tasks per client |
-| Real-time communication | Per-connection event channels and broadcasts |
-| Multiple interfaces | CLI and graphical clients |
-| Shared game world | Centralized server state |
-| Persistent progress | redb-backed player and world storage |
-| Command processing | Typed commands and modular handlers |
-| Combat and quests | Server-side gameplay engines |
-| Group exploration | Multiplayer groups and shared dungeons |
-| Procedural content | Runtime-generated dungeon instances |
-| Diagnostics | Structured logging and configurable log levels |
-
-The README describes testing procedures for multiplayer communication, combat, and quest progression. It does not provide a quantitative performance benchmark or numerical concurrency results, so no throughput or latency figures are claimed here.
 
 ## What I Learned
 
-### Systems Programming & Networking
+### Game Development & 2D Graphics (Rust, Macroquad)
 
-- Implementing a TCP server and a custom line-based communication protocol.
-- Managing multiple simultaneous connections with asynchronous Rust.
-- Separating direct responses from asynchronous event delivery.
-- Designing message parsing, validation, error handling, and connection lifecycles.
+- Building a real-time graphical client with Macroquad: game loop, rendering of
+  rooms, NPCs and players, camera handling, and animated sprites.
+- Designing pixel-art maps from tilesets (Stardew Valley sprites), organised in
+  separate layers (ground / foreground) to get depth and let the player walk
+  behind objects.
+- Implementing collision handling so the player respects walls, buildings,
+  furniture and NPCs, and defining the walkable zones and exits of each room.
+- Keeping the visual world consistent with the server's data: each room, exit and
+  NPC defined in the YAML configuration has a matching map, position and sprite.
+- Creating a visual identity for the game: item icons, NPC sprites, an inventory
+  screen, and a dedicated fight map.
 
-### Rust & Concurrency
+### GUI Architecture & Real-Time Event Handling
 
-- Using Tokio tasks, `select!`, and message-passing channels.
-- Managing shared state with `Arc<Mutex<T>>`.
-- Understanding synchronization trade-offs and avoiding network I/O while holding locks.
-- Organizing a multi-crate Cargo workspace with clear component boundaries.
-
-### Backend Engineering
-
-- Designing a centralized dispatcher and modular command handlers.
-- Separating transport, business logic, state management, and persistence.
-- Implementing structured serialization and database-backed state recovery.
-- Handling graceful shutdown, periodic background tasks, and structured logging.
-
-### Distributed State & Event-Driven Design
-
-- Synchronizing a shared world across multiple connected clients.
-- Broadcasting room, group, combat, and quest events.
-- Keeping client interfaces synchronized with authoritative server state.
-- Modeling complex interactions through typed commands and game events.
-
-### Game Systems Engineering
-
-- Implementing turn-based combat, inventory management, and an in-game economy.
-- Building a multi-step quest progression engine.
-- Generating dungeon instances at runtime.
-- Coordinating gameplay rules across multiple systems while maintaining persistent player progress.
+- Structuring the client into one module per feature (camera, chat, fight,
+  inventory, quests, groups, dungeon, gambling, NPC dialogues, menus) to keep a
+  growing codebase readable and maintainable.
+- Reacting to server-pushed events (`EVT ...`) in real time: other players entering
+  or leaving a room, chat messages, combat turns, quest updates, and world resets,
+  while the player keeps interacting with the game.
+- Turning protocol responses into visual feedback: HP and turn display in combat,
+  quest progress, inventory updates, dialogue boxes, and error messages.
+- Building dynamic interfaces: a dungeon whose doors switch between open and closed
+  states, a slot-machine mini-game, group management, and in-game chat.
 
 ### Software Engineering & Teamwork
 
 - Splitting a project into independent server, CLI, and GUI components.
 - Working with a shared protocol contract between independently developed components.
-- Writing unit tests for command handlers and documenting multiplayer integration tests.
 - Making architectural trade-offs between simplicity, modularity, consistency, and maintainability.
+
 
 ## Links
 
 - **Repository**: https://github.com/Arcanovax/TAP
-- **Protocol reference**: RFC 42TAP, as referenced in the project documentation
 - **Documentation**: See the repository README for architecture, protocol details, testing procedures, and build instructions.
