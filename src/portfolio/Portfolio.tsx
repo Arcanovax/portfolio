@@ -2,6 +2,7 @@ import  Me  from './me.tsx'
 import Projects from './projects.tsx';
 import Timeline from "../components/timeline";
 import Commits from './commits.tsx';
+import CountViews from './CountViews.tsx';
 
 export default function Portfolio() {
 
@@ -12,8 +13,6 @@ export default function Portfolio() {
 				<div className="pb-10 sm:pb-20 lg:pb-40  m-auto max-w-200">
 					<Me/>
 				</div>
-
-
 
 				<div className="m-auto max-w-275 mb-20 sm:mb-25 lg:mb-50 ">
 					<div className="flex font-grotesk flex-col gap-5 max-w-300 my-5 text-[15px] sm:text-[20px] lg:text-[25px] ">
@@ -32,6 +31,7 @@ export default function Portfolio() {
 						In parallel with the program, I continue to work on personal projects to explore new technologies, especially
 						those related to AI with the goal of combining a solid foundation with modern solutions.
 						</p>
+						<CountViews/>
 
 					</div>
 				</div>
