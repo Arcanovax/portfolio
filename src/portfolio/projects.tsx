@@ -1,82 +1,16 @@
-import tap_img from '../assets/tap_spawn.png';
-import tap_md from '../portfolio/projects/TAP/doc.md?raw';
-import agent_img from '../assets/agent_smith.png';
-import as_md from '../portfolio/projects/AgentSmith/doc.md?raw';
-import rag_img from '../assets/rag.png';
-import rag_md from '../portfolio/projects/RAG/doc.md?raw';
+
 import { useNavigate } from "react-router";
-
-const markdownAssets: Record<string, string> = {
-    'tap_spawn.png': tap_img,
-    'agent_smith.png': agent_img,
-    'rag.png': rag_img,
-};
-
-function resolveMarkdownAssets(markdown: string) {
-    return markdown.replace(
-        /(?:\.\.\/)+assets\/([^"'()\s>]+)/g,
-        (path, fileName: string) => markdownAssets[fileName] ?? path,
-    );
-}
-
-export type Projects = {
-  title: string;
-  branch: string;
-  years: number;
-  duration: string;
-  preview: {
-    img: any
-    descr: string;
-  },
-  markdown?: string;
-};
+import { projects_list } from "./projects/projects_list";
 
 
-export const projects: Record<string, Projects> = {
-    "tap":
-    {
-        title: 'The Answer Protocol',
-        branch: "TCP protocol",
-        years: 2026,
-        duration: "2 Months",
-        preview: {
-            img: tap_img,
-            descr: "A multiplayer game featuring room exploration and interaction with NPCs, inspired by the graphics of Stardew Valley, built entirely in RUST",
-        },
-        markdown: resolveMarkdownAssets(tap_md)
 
-    },
-    "agent_smith":
-    {
-        title: 'Agent Smith',
-        branch: "AI",
-        years: 2026,
-        duration: "1 Months",
-        preview: {
-            img: agent_img,
-            descr: "An autonomous agent that solves coding problems in a sandbox using MCP tools",
-        },
-        markdown: resolveMarkdownAssets(as_md)
-    },
-     "RAG":
-    {
-        title: 'RAG',
-        branch: "AI",
-        years: 2026,
-        duration: "1 Months",
-        preview: {
-            img: rag_img,
-            descr: "An AI that can quickly respond to a knowledge base through indexing and retrieval",
-        },
-        markdown: resolveMarkdownAssets(rag_md)
-    },
-}
+
 export default function Projects() {
     const navigate = useNavigate();
 
     return (
         <div>
-            {Object.entries(projects).map(([key, project], index) => (
+            {Object.entries(projects_list).map(([key, project], index) => (
                 <div
                     key={key}
                     className="

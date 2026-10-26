@@ -1,6 +1,6 @@
 
 import { useParams, useNavigate } from "react-router";
-import { projects, Projects } from '../projects';
+
 import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -9,13 +9,15 @@ import rehypeRaw from "rehype-raw";
 import "highlight.js/styles/github-dark.css";
 import remarkBreaks from "remark-breaks";
 
+import { projects_list } from "./projects_list";
+import {Projects} from './projects_list';
 
 export default function Project_page() {
 
     const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
 
-    const project: Projects | null = slug ? projects[slug] : null;
+    const project: Projects | null = slug ? projects_list[slug] : null;
 
 
     useEffect(() => {

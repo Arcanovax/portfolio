@@ -9,7 +9,7 @@ The main technical objective is to build a concurrent network server capable of 
 The project was developed as part of the 42 curriculum by a team of three contributors.
 
 
-<img src="/src/assets/tap_spawn.png" style="display: block; width: 100%; height: 100%;" />
+<img src="/assets/TAP/TAP_demo_spawn.png" style="display: block; width: 100%; height: 100%;" />
 
 
 ## System Architecture
@@ -52,7 +52,7 @@ All the assets are from the game Stardew Valley, and I created the maps myself.
 
 ### Map
 
-<img src="/src/assets/TAP/TAP_demo_map.png" style="display: block; width: 100%; height: 100%;" />
+<img src="/assets/TAP/TAP_demo_map.png" style="display: block; width: 100%; height: 100%;" />
 
 *This rendering was refined by AI to achieve a more realistic result.*
 <br>
@@ -62,11 +62,11 @@ All the assets are from the game Stardew Valley, and I created the maps myself.
 <div style="display: flex; justify-content: center; flex-wrap: wrap; width: 100%; gap: 5px;">
   <img
     style="width: 49%; min-width: 300px; height: auto; margin:0;"
-    src="/src/assets/TAP/TAP_demo_fight.png"
+    src="/assets/TAP/TAP_demo_fight.png"
   />
   <img
     style="width: 49%; min-width: 300px; height: auto; margin:0;"
-    src="/src/assets/TAP/TAP_demo_dungeon.png"
+    src="/assets/TAP/TAP_demo_dungeon.png"
   />
 </div>
 
@@ -75,7 +75,7 @@ The game features a multiplayer turn-based combat system and procedurally genera
 
 ### Multiplayer and multi-channel chat
 
-<img src="/src/assets/TAP/TAP_demo_chat.png" style="display: block; width: 100%; height: 100%; margin:0;" />
+<img src="/assets/TAP/TAP_demo_chat.png" style="display: block; width: 100%; height: 100%; margin:0;" />
 
 Three chat channels have been implemented: global chat, room chat, and group chat.
 <br>
@@ -85,11 +85,11 @@ Three chat channels have been implemented: global chat, room chat, and group cha
 <div style="display: flex; justify-content: center; flex-wrap: wrap; width: 100%; gap: 5px;">
   <img
     style="width: 59%; min-width: 300px; height: auto; margin:0;"
-    src="/src/assets/TAP/TAP_demo_market.png"
+    src="/assets/TAP/TAP_demo_market.png"
   />
   <img
     style="width: 39%; min-width: 300px; height: auto; margin:0;"
-    src="/src/assets/TAP/TAP_demo_shop.png"
+    src="/assets/TAP/TAP_demo_shop.png"
   />
 </div>
 
