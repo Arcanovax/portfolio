@@ -35,7 +35,7 @@ export default function Project_page() {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
 
-                    className='relative z-10 cursor-pointer'
+                    className='relative z-10 cursor-pointer font-grotesk'
                      >Home</div>
                      <h1 className='font-bebas text-[110px] text-white leading-[1]'>Not found</h1>
                     </div>
@@ -46,7 +46,7 @@ export default function Project_page() {
 
 	return (
         <div className="relative w-full min-h-screen overflow-hidden bg-[#16181B] text-foreground ">
-            <div className="mx-5 my-35 text-white font-grotesk sm:mx-10 lg:mx-80 " >
+            <div className="mx-5 my-15 sm:my-25 lg:my-35 text-white font-grotesk sm:mx-10 lg:mx-80 " >
                 <div className="m-auto  max-w-200 pb-10">
                     <div
                     onClick={() =>  {
@@ -54,7 +54,7 @@ export default function Project_page() {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
 
-                    className='relative z-10 cursor-pointer m-1'
+                    className='relative z-10 cursor-pointer my-3 font-grotesk'
                      >Home</div>
                     <h1 className='font-bebas text-[100px] sm:text-[170px] text-white leading-[0.8]'>{project.title}</h1>
 

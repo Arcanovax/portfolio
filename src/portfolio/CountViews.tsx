@@ -42,7 +42,7 @@ export default function CountViews() {
     <div className="flex items-center gap-2 text-sm text-gray-500">
       <span>
         {views === null
-          ? ""
+          ? "0"
           : `${views.toLocaleString("fr-FR")} `
 		} Views
       </span>
