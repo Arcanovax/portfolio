@@ -4,14 +4,15 @@ import school42_img from '../assets/42.png';
 
 const experiences = [
   {
-    title: "TUMO",
+    title: "42 School",
     location: "Lyon",
-	image: tumo_img,
-    period: "2023",
+    period: "2026",
+	image: school42_img,
     description:
-      "Tumo is an after-school center for digital creation for 12 to 18 year-olds, studying programming, robotics, and video games",
-    technologies: ["Scratch", "JavaScript"],
+      "42 is a project-based computer science school focused on autonomy, problem-solving, and peer-to-peer learning. The curriculum emphasizes independent work, collaboration, and developing strong programming and problem-solving skills. Learning various computer programming languages through independent projects, either alone or in groups.",
+    technologies: ["Python", "AI", "Rust", "C", "Shell", "Docker"],
   },
+  ,
   {
     title: "Degree",
     location: "Édouard Branly High School",
@@ -21,14 +22,15 @@ const experiences = [
     technologies: ["Python", "HTML", "CSS"],
   },
   {
-    title: "42 School",
+    title: "TUMO",
     location: "Lyon",
-    period: "2026",
-	image: school42_img,
+	image: tumo_img,
+    period: "2023",
     description:
-      "42 is a project-based computer science school focused on autonomy, problem-solving, and peer-to-peer learning. The curriculum emphasizes independent work, collaboration, and developing strong programming and problem-solving skills. Learning various computer programming languages through independent projects, either alone or in groups.",
-    technologies: ["Python", "AI", "Rust", "C", "Shell", "Docker"],
-  },
+      "Tumo is an after-school center for digital creation for 12 to 18 year-olds, studying programming, robotics, and video games",
+    technologies: ["Scratch", "JavaScript"],
+  }
+
 ];
 
 export default function Timeline() {
