@@ -7,7 +7,7 @@ import as_md from './AgentSmith/doc.md?raw';
 import rag_img from '/assets/RAG/title.png';
 import rag_md from './RAG/doc.md?raw';
 
-import vibescan_img from "/assets/VibeScan/demo.png"
+import vibescan_img from "/assets/VibeScan/logo.png"
 import vibescan_md from './VibeScan/doc.md?raw';
 
 export type Projects = {
